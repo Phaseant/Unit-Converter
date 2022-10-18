@@ -4,20 +4,14 @@ namespace UnitConverter;
 
 class MainPage : ContentPage
 {
-	// static List<string> CategoriesList = new List<string>(){"Время", "Длина", "Масса","Скорость","Объем","Площадь"}; //lists for pickers
-	static List<Unit> Time = new List<Unit>(){new Unit(){UnitID = 0, UnitName = "Секунда"},new Unit(){UnitID = 0, UnitName = "Минута"},new Unit(){UnitID = 0, UnitName = "Час"},new Unit(){UnitID = 0, UnitName = "День"},new Unit(){UnitID = 0, UnitName = "Год"}};
-	static List<string> LengthList = new List<string>(){"Сантиметр","Ярд","Метр","Километр","Миля"};
-	static List<string> MassList = new List<string>(){"Килограмм","Грамм","Тонна","Фунт","Унция"};
-	static List<string> SpeedList = new List<string>(){"Метр в секунду","Километр в час","Миля в час","Фут в секунду","Узел"};
-	static List<string> VolumeList = new List<string>(){"Литр","Милилитр","Американский галлон","Кубический метр","Кубический фут"};
-	static List<string> AreaList = new List<string>(){"Квадратный метр","Квадратный сантиметр","Квадратная миля","Гектар","Акр"};
-
 	Picker pickerCategories = new Picker{Title = "Категория", FontSize = 24}; //pickers
-	Picker pickerLeft = new Picker{Title = "Из чего", FontSize = 24, TextColor = Color.FromArgb("ffd5d9e0")};
-	// Picker pickerRight = new Picker{Title = "Во что", FontSize = 24, TextColor = Color.FromArgb("ffd5d9e0")};
+	Picker pickerLeft = new Picker{Title = "Из чего", FontSize = 24};
+	Picker pickerRight = new Picker{Title = "Во что", FontSize = 24};
 
-	// Entry entryLeft = new  Entry{Placeholder = "", FontSize = 24, MaxLength = 18, Keyboard = Keyboard.Numeric, Text = "0"};
-	// Entry entryRight = new  Entry{Placeholder = "", FontSize = 24, MaxLength = 18, IsReadOnly = true};
+	Entry entryLeft = new  Entry{Placeholder = "", FontSize = 24, MaxLength = 18, Keyboard = Keyboard.Numeric};
+	Entry entryRight = new  Entry{Placeholder = "", FontSize = 24, MaxLength = 18, IsReadOnly = true};
+
+	Button ButtonCalc = new Button{FontSize = 24, Text = "Вычислить"};
 
 	double[,] TimeVals =
 	{
@@ -36,61 +30,124 @@ class MainPage : ContentPage
 		{100000, 1094, 1000, 1, 1.609},
 		{160900, 1760, 1609.34, 1.609, 1}
 	};
-	//написать матрицы для длины, массы, скорости, объема, площади
 
+	double[,] MassVals = 
+	{
+		{1, 28.35, 453.6, 1000, 1000000},
+		{28.35, 1, 16, 35.274, 35270},
+		{453.6, 16, 1, 2.205, 2205},
+		{1000, 35.274, 2.205, 1, 1000},
+		{1000000, 35270, 2205, 1000, 1},
+	};
+	double[,] SpeedVals = 
+	{
+		{1, 1.944, 2.237, 3.28084, 3.6},
+		{1.944, 1, 1.151, 1.688, 1.852},
+		{2.237, 1.151, 1, 1.467, 1.609},
+		{3.28084, 1.688, 1.467, 1, 1.097},
+		{3.6, 1.852, 1.609, 1.097, 1},
+	};
+
+	double[,] VolumeVals = 
+	{
+		{1, 35.315, 264.2, 1000, 1000000},
+		{35.315, 1, 7.481, 28.317, 28320},
+		{264.2, 7.481, 1, 3.785, 3785},
+		{1000, 28.317, 3.785, 1, 1000},
+		{1000000, 28320, 3785, 1000, 1},
+	};
+
+	double[,] AreaVals = 
+	{
+		{1, 2.59, 259, 640, 2590000},
+		{2.59, 1, 100, 247.1, 1000000},
+		{ 259, 100, 1, 2.471, 10000},
+		{640, 247.1, 2.471, 1, 4047},
+		{2590000, 1000000, 10000, 4047, 1},
+	};
 
 	public MainPage()
 	{
-		BackgroundColor = Color.FromArgb("ff010c1e");
-		List<Category> Categories = new List<Category>();
-		Categories.Add(new Category(){CategoryID = 0, CategoryName = "Время", Units = Time});
-		Categories.Add(new Category(){CategoryID = 1, CategoryName = "Длина"});
-		Categories.Add(new Category(){CategoryID = 2, CategoryName = "Масса"});
-		Categories.Add(new Category(){CategoryID = 3, CategoryName = "Скорость"});
-		Categories.Add(new Category(){CategoryID = 4, CategoryName = "Объем"});
-		Categories.Add(new Category(){CategoryID = 5, CategoryName = "Площадь"});
+		// BackgroundColor = Color.FromArgb("ffd4896a");
+		List<Category> Categories = new List<Category>(){new Category("Время"), new Category("Длина"), new Category("Масса"), new Category("Скорость"), new Category("Объем"), new Category("Площадь")};
 
-		// pickerCategories.ItemsSource = Categories;
+		pickerCategories.ItemsSource = Categories;
 		pickerCategories.ItemDisplayBinding = new Binding("CategoryName");
-		pickerCategories.SetBinding(Picker.ItemsSourceProperty, "Categories");
-		pickerCategories.SetBinding(Picker.SelectedItemProperty, "SelectedCategory");
 
-		pickerLeft.SetBinding(Picker.ItemsSourceProperty, "SelectedCategory.Units");
-		// Content = new StackLayout{Children = {pickerCategories, pickerLeft, pickerRight, entryLeft, entryRight}, Padding = 12};
-		Content = new StackLayout{Children = {pickerCategories, pickerLeft}};
+		pickerCategories.SelectedIndexChanged += pickerCategoriesSelectedIndexChanged;
+		ButtonCalc.Clicked += ButtonCalcClicked;
+
+
+		Content = new StackLayout{Children = {pickerCategories, pickerLeft, pickerRight, entryLeft, entryRight, ButtonCalc}, Padding = 12};
 	}
 	
-	// private void entryLeft_TextChanged(object sender, EventArgs e)//changes entries
-	// {
-	// 	double number;
-	// 	string value = entryLeft.Text;
-	// 	bool success = double.TryParse(value,out number);
-	// 	switch(pickerCategories.SelectedIndex)
-	// 	{
-	// 		case 0:
-	// 			if(pickerLeft.SelectedIndex > pickerRight.SelectedIndex)
-	// 			{
-	// 				entryRight.Text = Convert.ToString(number*TimeVals[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-	// 			}
-	// 			else
-	// 			{
-	// 				entryRight.Text = Convert.ToString(number/TimeVals[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-	// 			}
-	// 			break;
-	// 		case 1:
-	// 			if(pickerLeft.SelectedIndex > pickerRight.SelectedIndex)
-	// 			{
-	// 				entryRight.Text = Convert.ToString(number*LengthVals[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-	// 			}
-	// 			else
-	// 			{
-	// 				entryRight.Text = Convert.ToString(number/LengthVals[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-	// 			}
-	// 			break;
-	// 	}
-		
-		
-	// }
+	private void ButtonCalcClicked(object sender, EventArgs e)//changes entries
+	{
+		double number = GetNumberFromEntry(entryLeft);
+		switch(pickerCategories.SelectedIndex)
+		{
+			case 0:
+				ConvertUnits(TimeVals, number, pickerRight, pickerLeft, false); //passed
+				break;
+			case 1:
+				ConvertUnits(LengthVals, number, pickerRight, pickerLeft, false); //not passed
+				break;
+			case 2:
+				ConvertUnits(MassVals, number, pickerRight, pickerLeft, false); //passed
+				break;
+			case 3:
+				ConvertUnits(SpeedVals, number, pickerRight, pickerLeft, true); //not passed
+				break;
+			case 4:
+				ConvertUnits(VolumeVals, number, pickerRight, pickerLeft, true); //not passed
+				break;
+			case 5:
+				ConvertUnits(AreaVals, number, pickerRight, pickerLeft, true); //not passed
+				break;
+		}
+	}
+
+
+	private void pickerCategoriesSelectedIndexChanged(object sender, EventArgs e)
+	{
+		Category selectedCategory = (Category)pickerCategories.SelectedItem;
+		pickerLeft.ItemsSource = selectedCategory.UnitNames;
+		pickerRight.ItemsSource = selectedCategory.UnitNames;
+	}
+
+	private void ConvertUnits(double[,] Table, double number, Picker pickerRight, Picker pickerLeft, bool minus)
+	{
+		if(minus)
+		{
+			if(pickerLeft.SelectedIndex > pickerRight.SelectedIndex)
+			{
+				entryRight.Text = Convert.ToString(number/Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
+			}
+			else
+			{
+				entryRight.Text = Convert.ToString(number*Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
+			}
+		}
+		else
+		{
+			if(pickerLeft.SelectedIndex > pickerRight.SelectedIndex)
+			{
+				entryRight.Text = Convert.ToString(number*Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
+			}
+			else
+			{
+				entryRight.Text = Convert.ToString(number/Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
+			}
+		}
+	}
+
+	private double GetNumberFromEntry(Entry entry)
+	{
+		double number;
+		string value = entryLeft.Text;
+		bool success = double.TryParse(value,out number);
+		return number;
+	}
 
 }
 
