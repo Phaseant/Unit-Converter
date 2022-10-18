@@ -1,0 +1,31 @@
+// if(pickerCategories.SelectedIndex == CategoriesList.IndexOf("Время"))
+// 		{
+// 			pickerLeft.ItemsSource = TimeList;
+// 			pickerRight.ItemsSource = TimeList;
+// 		}
+// 		else if(pickerCategories.SelectedIndex == CategoriesList.IndexOf("Длина"))
+// 		{
+			
+// 			pickerRight.ItemsSource = LengthList;
+// 			pickerLeft.ItemsSource = LengthList;
+// 		}
+// 		if(pickerCategories.SelectedIndex == CategoriesList.IndexOf("Масса"))
+// 		{
+// 			pickerLeft.ItemsSource = MassList;
+// 			pickerRight.ItemsSource = MassList;
+// 		}
+// 		if(pickerCategories.SelectedIndex == CategoriesList.IndexOf("Скорость"))
+// 		{
+// 			pickerLeft.ItemsSource = SpeedList;
+// 			pickerRight.ItemsSource = SpeedList;
+// 		}
+// 		if(pickerCategories.SelectedIndex == CategoriesList.IndexOf("Объем"))
+// 		{
+// 			pickerLeft.ItemsSource = VolumeList;
+// 			pickerRight.ItemsSource = VolumeList;
+// 		}
+// 		if(pickerCategories.SelectedIndex == CategoriesList.IndexOf("Площадь"))
+// 		{
+// 			pickerLeft.ItemsSource = AreaList;
+// 			pickerRight.ItemsSource = AreaList;
+// 		}
