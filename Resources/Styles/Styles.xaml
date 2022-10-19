@@ -15,7 +15,7 @@
     </Style>
 
     <Style TargetType="Entry">
-        <Setter Property="TextColor" Value="{StaticResource TextLight}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}" />
         <Setter Property="FontFamily" Value="SFPro"/>
         <Setter Property="FontSize" Value="14" />
