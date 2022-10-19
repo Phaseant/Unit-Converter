@@ -1,17 +1,19 @@
 using UnitConverter.Models;
-
+using Microsoft.Maui.Controls.Shapes;
 namespace UnitConverter;
 
 class MainPage : ContentPage
 {
-	Picker pickerCategories = new Picker{Title = "Категория", FontSize = 24}; //pickers
-	Picker pickerLeft = new Picker{Title = "Из чего", FontSize = 24};
-	Picker pickerRight = new Picker{Title = "Во что", FontSize = 24};
+	static List<Category> Categories = new List<Category>(){new Category("Время"), new Category("Длина"), new Category("Масса"), new Category("Скорость"), new Category("Объем"), new Category("Площадь")};
 
-	Entry entryLeft = new  Entry{Placeholder = "", FontSize = 24, MaxLength = 18, Keyboard = Keyboard.Numeric};
-	Entry entryRight = new  Entry{Placeholder = "", FontSize = 24, MaxLength = 18, IsReadOnly = true};
+	Picker pickerCategories = new Picker{Title = "Категория", FontSize = 30, HeightRequest = 60, FontAutoScalingEnabled = true, HorizontalTextAlignment = TextAlignment.Center}; //pickers
+	Picker pickerLeft = new Picker{Title = "Из чего", FontSize = 24, HorizontalTextAlignment = TextAlignment.Center, HeightRequest = 60};
+	Picker pickerRight = new Picker{Title = "Во что", FontSize = 24, HorizontalTextAlignment = TextAlignment.Center, HeightRequest = 60};
 
-	Button ButtonCalc = new Button{FontSize = 24, Text = "Вычислить"};
+	Entry entryLeft = new  Entry{Placeholder = "", FontSize = 26, MaxLength = 18, Keyboard = Keyboard.Numeric, HeightRequest = 100};
+	Entry entryRight = new  Entry{Placeholder = "", FontSize = 26, MaxLength = 18, IsReadOnly = true, HeightRequest = 100};
+
+	Button ButtonCalc = new Button{FontSize = 26, Text = "Вычислить"};
 
 	double[,] TimeVals =
 	{
@@ -68,17 +70,19 @@ class MainPage : ContentPage
 
 	public MainPage()
 	{
-		// BackgroundColor = Color.FromArgb("ffd4896a");
-		List<Category> Categories = new List<Category>(){new Category("Время"), new Category("Длина"), new Category("Масса"), new Category("Скорость"), new Category("Объем"), new Category("Площадь")};
-
 		pickerCategories.ItemsSource = Categories;
 		pickerCategories.ItemDisplayBinding = new Binding("CategoryName");
 
 		pickerCategories.SelectedIndexChanged += pickerCategoriesSelectedIndexChanged;
 		ButtonCalc.Clicked += ButtonCalcClicked;
 
+		StackLayout stacklayoutLeft = new StackLayout(){Children = {new Border{Content = entryLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,0,0)}}, new Border{Content = pickerLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(0,0,8,8)}}}, WidthRequest = 300};
+		StackLayout stacklayoutRight = new StackLayout(){Children = {new Border{Content = entryRight, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,0,0)}}, new Border{Content = pickerRight, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(0,0,8,8)}}}, WidthRequest = 300};
 
-		Content = new StackLayout{Children = {pickerCategories, pickerLeft, pickerRight, entryLeft, entryRight, ButtonCalc}, Padding = 12};
+		StackLayout stacklayout2stacks = new StackLayout(){Orientation = StackOrientation.Horizontal, Children = {stacklayoutLeft, stacklayoutRight}, Spacing = 30};
+		
+
+		Content = new StackLayout{Children = {new Border{Content = pickerCategories, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,8,8)}}, stacklayout2stacks, ButtonCalc}, Padding = 20, Spacing = 30};
 	}
 	
 	private void ButtonCalcClicked(object sender, EventArgs e)//changes entries
@@ -150,7 +154,3 @@ class MainPage : ContentPage
 	}
 
 }
-
-
-
-

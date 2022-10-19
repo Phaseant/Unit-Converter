@@ -4,56 +4,37 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/.DS_Store</key>
+		<data>
+		9c5GwReJmtk7/rcF0GLFBQBjGlI=
+		</data>
 		<key>Resources/AboutAssets.txt</key>
 		<data>
 		MEt7GErfS6fHNEi3JiInA2rNG0U=
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		WdkoUC4ToyEGnmmWWil5mrbC9Sk=
+		xHisiNGHY2ogh/82YvXKRO4O9WA=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
-		iEtuUGCV6JM3gxS/pO33swhmpp8=
+		n+E+Udco3gSKMBb34vpZLIboj9k=
 		</data>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
 		<data>
 		HlmAtjuZZYt4rOfUtxY3eRZ7cWA=
 		</data>
-		<key>Resources/OpenSans-Regular.ttf</key>
+		<key>Resources/SF-Pro.ttf</key>
 		<data>
-		zE7AsGBJ4dtB1cA4ackAkqWVV90=
-		</data>
-		<key>Resources/OpenSans-Semibold.ttf</key>
-		<data>
-		xCCQc0Hsw0Se+ydP1to34MJpwtI=
+		xzDd78xRRlEiOwPCPAR07d47FQg=
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
-		B4KsmCFROaxeh06URkMR6ym3goU=
-		</data>
-		<key>Resources/dotnet_bot.png</key>
-		<data>
-		qdYiPSemWrpOK00y89PG6ukhmkA=
-		</data>
-		<key>Resources/dotnet_bot@2x.png</key>
-		<data>
-		pZcH6LleT/tKpypJoIrgeT5V8z0=
-		</data>
-		<key>Resources/dotnet_bot@3x.png</key>
-		<data>
-		AgG9OaBqGlLlSsDbnE/6b1bb0xU=
+		irqq/1CPl3xhPkIBpnGrHiBjGbY=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>MonoBundle/CommunityToolkit.Mvvm.dll</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ekk1Ai4t2xZ1GMf9KJS/uHKy/lXbCXhl6mzgbZT0juc=
-			</data>
-		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
 		<dict>
 			<key>hash2</key>
@@ -192,13 +173,6 @@
 			<key>hash2</key>
 			<data>
 			qHTQ75/VdsIZ1q8dgjvbDAI7l4mfTKtUh5wqY04Efd4=
-			</data>
-		</dict>
-		<key>MonoBundle/Newtonsoft.Json.dll</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			cs8pHUurDt0IqbB8YXPh560au3q3J/1wRL9jBddRVmE=
 			</data>
 		</dict>
 		<key>MonoBundle/System.AppContext.dll</key>
@@ -1311,14 +1285,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oiq5DkhjaSVPzwLnLYddLT61CqNJzk8B5FgpRpx1DtE=
+			6QQt6Luv+b6EliOItCiYQkMambr4NUe59X9/RvTkl/E=
 			</data>
 		</dict>
 		<key>MonoBundle/UnitConverter.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MjFTKACEG7ACJSdAwYTkem4x7P9ZK158dxOdgO96p9o=
+			RNCaLxuEWetftawC8C9ZP/tkbWtD4lEMPIbzpYnWlPY=
 			</data>
 		</dict>
 		<key>MonoBundle/WindowsBase.dll</key>
@@ -1409,14 +1383,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zn0uy3ScRyLMgwubl/2Gv0yTrxyS5TXIhO+JJfGsRH0=
+			Z2kAixTmKmVV9rgcUVeVKzAQQ5etjrHFeqyOgTjI/3k=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tx0KXqEC+DvcCGyogQTEQWHcCWJYYqH24NtPwhpQEjo=
+			+2Yv4GU4maWWVdPRGQsBjYx8z8t7jmGBT1YePClEiLA=
 			</data>
 		</dict>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
@@ -1426,46 +1400,18 @@
 			n/NMp5DkQGppkjpBoyoV1mhEK36L/cuHFrOabOQafS0=
 			</data>
 		</dict>
-		<key>Resources/OpenSans-Regular.ttf</key>
+		<key>Resources/SF-Pro.ttf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FNNH+4WT6j+dkICf7BAKjNGnAzfwZUvvtE8KxDS1WJc=
-			</data>
-		</dict>
-		<key>Resources/OpenSans-Semibold.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			rDvjSATWhxVvIz037Zlnisdrejo+yZux9gNANRljFuY=
+			TipWxIOTTJIzUIutK4ThpCan/yY7Y3nfXeY0gpEQJhY=
 			</data>
 		</dict>
 		<key>Resources/appicon.icns</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NSlVKvdePBIB6S1FW2x0cJEDo5CUh9w8q6zNQQU4jmk=
-			</data>
-		</dict>
-		<key>Resources/dotnet_bot.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			nj9w48ATNqlPSMACcu8GOeBxwJ5X0tfo5PhxSbenWuc=
-			</data>
-		</dict>
-		<key>Resources/dotnet_bot@2x.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			SOfOgPr5Yk4bVioaDw9goZcPhI1O8+PGNEXqhGrdERo=
-			</data>
-		</dict>
-		<key>Resources/dotnet_bot@3x.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			06Dw48r2qORp1zVQzu1FMEqEQpN18taU/bp0JACYc40=
+			ksvajPmBPDVEDHoRRHk3REfaTJOeQxd/IxuuyM4SKn4=
 			</data>
 		</dict>
 	</dict>
