@@ -11,8 +11,8 @@ public partial class App : Application
 	public App()
 	{
 		InitializeComponent();
-		SetMainWindowStartSize(670, 415);
-		MainPage = new MainPage();
+		SetMainWindowStartSize(670, 450);
+		MainPage = new AppShell();
 	}
 	private void SetMainWindowStartSize(int width, int height)
 	{
@@ -27,8 +27,8 @@ public partial class App : Application
 					Thread.Sleep(1000);
 					MainThread.BeginInvokeOnMainThread(() =>
 					{
-						handler.PlatformView.WindowScene.SizeRestrictions.MinimumSize = new CoreGraphics.CGSize(670, 415);
-						handler.PlatformView.WindowScene.SizeRestrictions.MaximumSize = new CoreGraphics.CGSize(670, 415);
+						handler.PlatformView.WindowScene.SizeRestrictions.MinimumSize = new CoreGraphics.CGSize(670, 450);
+						handler.PlatformView.WindowScene.SizeRestrictions.MaximumSize = new CoreGraphics.CGSize(670, 450);
 					});
 				});
 			#endif
