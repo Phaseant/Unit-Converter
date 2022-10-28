@@ -5,6 +5,7 @@
   <key>UIAppFonts</key>
   <array>
 	<string>.DS_Store</string>
+	<string>MauiInfo.plist</string>
 	<string>SF-Pro.ttf</string>
   </array>
 

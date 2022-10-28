@@ -7,7 +7,6 @@
    <Style TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource TextLight}" />
         <Setter Property="BackgroundColor" Value="{StaticResource ButtonYellow}" />
-        <Setter Property="FontFamily" Value="SFPro"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="14,10"/>
@@ -17,7 +16,6 @@
     <Style TargetType="Entry">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EntryLight}, Dark={StaticResource EntryDark}}" />
-        <Setter Property="FontFamily" Value="SFPro"/>
         <Setter Property="FontSize" Value="14" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
@@ -26,7 +24,6 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}" />
         <Setter Property="TitleColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PickerLight}, Dark={StaticResource PickerDark}}" />
-        <Setter Property="FontFamily" Value="SFPro"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
 

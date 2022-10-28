@@ -7,10 +7,10 @@
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
-        <Tab Title="Main">
+        <Tab Title="Один к Одному">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
         </Tab>
-        <Tab Title="Second">
+        <Tab Title="Один к Четырем">
             <ShellContent ContentTemplate="{DataTemplate local:SecondPage}"  Route="SecondPage"/>
         </Tab>
     </TabBar>

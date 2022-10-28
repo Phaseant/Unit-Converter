@@ -16,28 +16,44 @@ public partial class SecondPage : ContentPage
 
 	List<string> ListUnitNames = new List<string>();
 
-	Entry NameEntry1 = new Entry{Placeholder = "", IsReadOnly = true};
-	Entry NameEntry2 = new Entry{Placeholder = "", IsReadOnly = true};
-	Entry NameEntry3 = new Entry{Placeholder = "", IsReadOnly = true};
-	Entry NameEntry4 = new Entry{Placeholder = "", IsReadOnly = true};
+	Entry NameEntry1 = new Entry{Placeholder = "Название", IsReadOnly = true, WidthRequest = 120};
+	Entry NameEntry2 = new Entry{Placeholder = "Название", IsReadOnly = true, WidthRequest = 120};
+	Entry NameEntry3 = new Entry{Placeholder = "Название", IsReadOnly = true, WidthRequest = 120};
+	Entry NameEntry4 = new Entry{Placeholder = "Название", IsReadOnly = true, WidthRequest = 120};
 
-	Entry ValEntry1 = new Entry{Placeholder = "", IsReadOnly = true};
-	Entry ValEntry2 = new Entry{Placeholder = "", IsReadOnly = true};
-	Entry ValEntry3 = new Entry{Placeholder = "", IsReadOnly = true};
-	Entry ValEntry4 = new Entry{Placeholder = "", IsReadOnly = true};
+	Entry ValEntry1 = new Entry{Placeholder = "", IsReadOnly = true, WidthRequest = 270, HorizontalTextAlignment = TextAlignment.Start};
+	Entry ValEntry2 = new Entry{Placeholder = "", IsReadOnly = true, WidthRequest = 270, HorizontalTextAlignment = TextAlignment.Start};
+	Entry ValEntry3 = new Entry{Placeholder = "", IsReadOnly = true, WidthRequest = 270, HorizontalTextAlignment = TextAlignment.Start};
+	Entry ValEntry4 = new Entry{Placeholder = "", IsReadOnly = true, WidthRequest = 270, HorizontalTextAlignment = TextAlignment.Start};
 
+//new Border{Content = entryLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,0,0)}}
 
 	public SecondPage()
 	{
+		NameEntry1.SetAppThemeColor(Entry.BackgroundColorProperty, Color.FromArgb("ff84817a"), Color.FromArgb("ff001e38"));
+		NameEntry2.SetAppThemeColor(Entry.BackgroundColorProperty, Color.FromArgb("ff84817a"), Color.FromArgb("ff001e38"));
+		NameEntry3.SetAppThemeColor(Entry.BackgroundColorProperty, Color.FromArgb("ff84817a"), Color.FromArgb("ff001e38"));
+		NameEntry4.SetAppThemeColor(Entry.BackgroundColorProperty, Color.FromArgb("ff84817a"), Color.FromArgb("ff001e38"));
+
 		pickerCategories.ItemsSource = Categories;
 		pickerCategories.ItemDisplayBinding = new Binding("CategoryName");
 
 		pickerCategories.SelectedIndexChanged += pickerCategoriesSelectedIndexChanged;
 		ButtonCalc.Clicked += ButtonCalcClicked;
 
-		pickerLeft.SelectedIndexChanged += pickerLeftIndexChanged;
+		pickerLeft.SelectedIndexChanged += pickerLeftSelectedIndexChanged;
 
-		Content = new StackLayout{Children = {pickerCategories,NameEntry1, NameEntry2, NameEntry3, NameEntry4, ValEntry1, ValEntry2, ValEntry3, ValEntry4, pickerLeft, entryLeft, ButtonCalc}, Padding = 20, Spacing = 30};
+		Border Unit1 = new Border{Content = new StackLayout{Orientation = StackOrientation.Horizontal, Children = {NameEntry1, ValEntry1}}, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,8,8)}};
+		Border Unit2 = new Border{Content = new StackLayout{Orientation = StackOrientation.Horizontal, Children = {NameEntry2, ValEntry2}}, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,8,8)}};
+		Border Unit3 = new Border{Content = new StackLayout{Orientation = StackOrientation.Horizontal, Children = {NameEntry3, ValEntry3}}, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,8,8)}};
+		Border Unit4 = new Border{Content = new StackLayout{Orientation = StackOrientation.Horizontal, Children = {NameEntry4, ValEntry4}}, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,8,8)}};
+		
+		StackLayout stacklayoutLeft = new StackLayout(){Children = {new Border{Content = entryLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,0,0)}}, new Border{Content = pickerLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(0,0,8,8)}}}, WidthRequest = 200};
+		StackLayout stacklayoutRight = new StackLayout(){Children = {Unit1, Unit2, Unit3, Unit4}, WidthRequest = 400, Spacing = 8};
+
+		StackLayout stacklayout2stacks = new StackLayout(){Orientation = StackOrientation.Horizontal, Children = {stacklayoutLeft, stacklayoutRight}, Spacing = 30};
+
+		Content = new StackLayout{Children = {new Border{Content = pickerCategories, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,8,8)}}, stacklayout2stacks, ButtonCalc}, Padding = 20, Spacing = 30};
 	}
 
 	protected override void OnAppearing()
@@ -86,7 +102,7 @@ public partial class SecondPage : ContentPage
 		}
 	}	
 
-	private void pickerLeftIndexChanged(object sender, EventArgs e) //если меняем левый пикер то ставим названия всех остальных юнитов
+	private void pickerLeftSelectedIndexChanged(object sender, EventArgs e) //если меняем левый пикер то ставим названия всех остальных юнитов
 	{
 		Category selectedCategory = (Category)pickerCategories.SelectedItem;
 		ListUnitNames = selectedCategory.UnitNames.GetRange(0,selectedCategory.UnitNames.Count);
@@ -96,6 +112,11 @@ public partial class SecondPage : ContentPage
 		NameEntry2.Text = ListUnitNames[1];
 		NameEntry3.Text = ListUnitNames[2];
 		NameEntry4.Text = ListUnitNames[3];
+
+		ValEntry1.Text = "";
+		ValEntry2.Text = "";
+		ValEntry3.Text = "";
+		ValEntry4.Text = "";
 		
 	}
 
@@ -107,6 +128,3 @@ public partial class SecondPage : ContentPage
 		return number;
 	}
 }
-
-
-//не работает апдейт от левого пикера почини бля братан прошу хз что здесь не так

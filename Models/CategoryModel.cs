@@ -27,15 +27,15 @@ namespace UnitConverter.Models
 					UnitVals = Mass;
 					break;
 				case "Скорость":
-					UnitNames = new List<string>(){"Метр в секунду","Узел","Миля в час","Фут в секунду","Километр в час"};
+					UnitNames = new List<string>(){"Метр/сек","Узел","Миля/ч","Фут/сек","Километр/ч"};
 					UnitVals = Speed;
 					break;
 				case "Объем":
-					UnitNames = new List<string>(){"Кубический метр","Кубический фут","Американский галлон","Литр","Милилитр"};
+					UnitNames = new List<string>(){"Куб. Метр","Куб. фут","Амер. галлон","Литр","Милилитр"};
 					UnitVals = Volume;
 					break;
 				case "Площадь":
-					UnitNames = new List<string>(){"Квадратная миля","Квадратный км","Гектар","Акр","Квадратный метр"};
+					UnitNames = new List<string>(){"Кв. миля","Кв. км","Гектар","Акр","Кв. метр"};
 					UnitVals = Area;
 					break;
 			}

@@ -23,7 +23,9 @@ public partial class MainPage : ContentPage
 		pickerCategories.ItemDisplayBinding = new Binding("CategoryName");
 
 		pickerCategories.SelectedIndexChanged += pickerCategoriesSelectedIndexChanged;
+		pickerLeft.SelectedIndexChanged += pickerLeftSelectedIndexChanged;
 		ButtonCalc.Clicked += ButtonCalcClicked;
+
 
 		StackLayout stacklayoutLeft = new StackLayout(){Children = {new Border{Content = entryLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,0,0)}}, new Border{Content = pickerLeft, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(0,0,8,8)}}}, WidthRequest = 300};
 		StackLayout stacklayoutRight = new StackLayout(){Children = {new Border{Content = entryRight, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(8,8,0,0)}}, new Border{Content = pickerRight, StrokeShape = new RoundRectangle{CornerRadius = new CornerRadius(0,0,8,8)}}}, WidthRequest = 300};
@@ -107,6 +109,11 @@ public partial class MainPage : ContentPage
 		string value = entryLeft.Text;
 		bool success = double.TryParse(value,out number);
 		return number;
+	}
+
+	private void pickerLeftSelectedIndexChanged(object sender, EventArgs e)
+	{
+		entryRight.Text = "";
 	}
 
 }
