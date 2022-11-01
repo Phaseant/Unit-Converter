@@ -125,6 +125,8 @@ public partial class SecondPage : ContentPage
 		double number;
 		string value = entryLeft.Text;
 		bool success = double.TryParse(value,out number);
-		return number;
+		if(number > 0)
+			return number;
+		else return 0;
 	}
 }

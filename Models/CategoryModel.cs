@@ -19,7 +19,7 @@ namespace UnitConverter.Models
 					UnitVals = Time;
 					break;
 				case "Длина":
-					UnitNames = new List<string>(){"Сантиметр","Ярд","Метр","Километр","Миля"};
+					UnitNames = new List<string>(){"Сантиметр","Ярд","Метр","Километр","Брит. Миля"};
 					UnitVals = Length;
 					break;
 				case "Масса":

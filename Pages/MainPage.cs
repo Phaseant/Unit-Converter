@@ -108,7 +108,9 @@ public partial class MainPage : ContentPage
 		double number;
 		string value = entryLeft.Text;
 		bool success = double.TryParse(value,out number);
-		return number;
+		if(number > 0)
+			return number;
+		else return 0;
 	}
 
 	private void pickerLeftSelectedIndexChanged(object sender, EventArgs e)
