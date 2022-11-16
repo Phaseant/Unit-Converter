@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OzDXWG2a2eNxZEsSVJNQNlkFH0UcPbkIyn4KONif8e7rzd2m/cCGK61MYpTsGxVP20Z69PwteSiljsc6mk6dHQ==",
+  "dgSpecHash": "njVwiZG/LmMgwNfG2rfIYVBrgMSqLWPfkH8igT0aHKnED0ytTCfRVPwscTuj0uUypeQDPcCHHbva2WtjHiEKKQ==",
   "success": true,
   "projectFilePath": "/Users/klimkrivoguzov/Developer/C#/UnitConverter/UnitConverter.csproj",
   "expectedPackageFiles": [
@@ -12,13 +12,21 @@
     "/Users/klimkrivoguzov/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.1/microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
     "/Users/klimkrivoguzov/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
     "/Users/klimkrivoguzov/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.dependencies/6.0.540/microsoft.maui.dependencies.6.0.540.nupkg.sha512",
-    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.extensions/6.0.540/microsoft.maui.extensions.6.0.540.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.dependencies/6.0.547/microsoft.maui.dependencies.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.extensions/6.0.547/microsoft.maui.extensions.6.0.547.nupkg.sha512",
     "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.graphics/6.0.501/microsoft.maui.graphics.6.0.501.nupkg.sha512",
     "/Users/klimkrivoguzov/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "/Users/klimkrivoguzov/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/klimkrivoguzov/.nuget/packages/system.runtime.interopservices.nfloat.internal/6.0.1/system.runtime.interopservices.nfloat.internal.6.0.1.nupkg.sha512",
-    "/Users/klimkrivoguzov/.nuget/packages/microsoft.windowsdesktop.app.ref/6.0.9/microsoft.windowsdesktop.app.ref.6.0.9.nupkg.sha512"
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.windowsdesktop.app.ref/6.0.11/microsoft.windowsdesktop.app.ref.6.0.11.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.core.ref.maccatalyst/6.0.547/microsoft.maui.core.ref.maccatalyst.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.core.runtime.maccatalyst/6.0.547/microsoft.maui.core.runtime.maccatalyst.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.controls.ref.maccatalyst/6.0.547/microsoft.maui.controls.ref.maccatalyst.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.controls.runtime.maccatalyst/6.0.547/microsoft.maui.controls.runtime.maccatalyst.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.essentials.ref.maccatalyst/6.0.547/microsoft.maui.essentials.ref.maccatalyst.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maui.essentials.runtime.maccatalyst/6.0.547/microsoft.maui.essentials.runtime.maccatalyst.6.0.547.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maccatalyst.ref/15.4.471/microsoft.maccatalyst.ref.15.4.471.nupkg.sha512",
+    "/Users/klimkrivoguzov/.nuget/packages/microsoft.maccatalyst.runtime.maccatalyst-x64/15.4.471/microsoft.maccatalyst.runtime.maccatalyst-x64.15.4.471.nupkg.sha512"
   ],
   "logs": []
 }

@@ -24,6 +24,7 @@ public partial class MainPage : ContentPage
 
 		pickerCategories.SelectedIndexChanged += pickerCategoriesSelectedIndexChanged;
 		pickerLeft.SelectedIndexChanged += pickerLeftSelectedIndexChanged;
+		pickerRight.SelectedIndexChanged += pickerRightSelectedIndexChanged;
 		ButtonCalc.Clicked += ButtonCalcClicked;
 
 
@@ -46,27 +47,7 @@ public partial class MainPage : ContentPage
 	{
 		double number = GetNumberFromEntry(entryLeft);
 		Category chosenCategory = (Category)pickerCategories.SelectedItem;
-		switch(pickerCategories.SelectedIndex)
-		{
-			case 0:
-				ConvertUnits(chosenCategory.UnitVals, number, pickerRight, pickerLeft, false); //passed
-				break;
-			case 1:
-				ConvertUnits(chosenCategory.UnitVals, number, pickerRight, pickerLeft, false); //not passed
-				break;
-			case 2:
-				ConvertUnits(chosenCategory.UnitVals, number, pickerRight, pickerLeft, false); //passed
-				break;
-			case 3:
-				ConvertUnits(chosenCategory.UnitVals, number, pickerRight, pickerLeft, true); //not passed
-				break;
-			case 4:
-				ConvertUnits(chosenCategory.UnitVals, number, pickerRight, pickerLeft, true); //not passed
-				break;
-			case 5:
-				ConvertUnits(chosenCategory.UnitVals, number, pickerRight, pickerLeft, true); //not passed
-				break;
-		}
+		ConvertUnits(chosenCategory, number, pickerLeft, (string)pickerRight.SelectedItem, entryRight);
 	}
 
 
@@ -77,31 +58,29 @@ public partial class MainPage : ContentPage
 		pickerRight.ItemsSource = selectedCategory.UnitNames;
 	}
 
-	private void ConvertUnits(double[,] Table, double number, Picker pickerRight, Picker pickerLeft, bool minus)
+	private void ConvertUnits(Category chosenCategory, double number, Picker pickerLeft, string unitName, Entry valueEntry)
 	{
-		if(minus)
+		int unit_index = chosenCategory.UnitNames.IndexOf(unitName);
+		switch(chosenCategory.CategoryName)
 		{
-			if(pickerLeft.SelectedIndex > pickerRight.SelectedIndex)
-			{
-				entryRight.Text = Convert.ToString(number/Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-			}
-			else
-			{
-				entryRight.Text = Convert.ToString(number*Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-			}
+			case "Время":
+			case "Длина":
+			case "Масса":
+				if(pickerLeft.SelectedIndex > unit_index)
+					valueEntry.Text = Convert.ToString(number*chosenCategory.UnitVals[unit_index, pickerLeft.SelectedIndex]);
+				else
+					valueEntry.Text = Convert.ToString(number/chosenCategory.UnitVals[unit_index, pickerLeft.SelectedIndex]);
+				break;
+			case "Скорость":
+			case "Объем":
+			case "Площадь":
+				if(pickerLeft.SelectedIndex > unit_index)
+					valueEntry.Text = Convert.ToString(number/chosenCategory.UnitVals[unit_index, pickerLeft.SelectedIndex]);
+				else
+					valueEntry.Text = Convert.ToString(number*chosenCategory.UnitVals[unit_index, pickerLeft.SelectedIndex]);
+				break;
 		}
-		else
-		{
-			if(pickerLeft.SelectedIndex > pickerRight.SelectedIndex)
-			{
-				entryRight.Text = Convert.ToString(number*Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-			}
-			else
-			{
-				entryRight.Text = Convert.ToString(number/Table[pickerRight.SelectedIndex, pickerLeft.SelectedIndex]);
-			}
-		}
-	}
+	}	
 
 	private double GetNumberFromEntry(Entry entry)
 	{
@@ -114,6 +93,11 @@ public partial class MainPage : ContentPage
 	}
 
 	private void pickerLeftSelectedIndexChanged(object sender, EventArgs e)
+	{
+		entryRight.Text = "";
+	}
+
+	private void pickerRightSelectedIndexChanged(object sender, EventArgs e)
 	{
 		entryRight.Text = "";
 	}
